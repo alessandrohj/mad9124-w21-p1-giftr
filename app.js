@@ -5,7 +5,10 @@ import express from 'express'
 import compression from 'compression'
 import cors from 'cors'
 import sanitizeMongo from 'express-mongo-sanitize'
+import authRouter from './routes/auth/index.js'
+import helmet from 'helmet'
 import connectDatabase from './startup/connectDatabase.js'
+
 connectDatabase()
 
 
