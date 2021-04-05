@@ -1,5 +1,8 @@
 import http from 'http'
 import app from './app.js'
+import createDebug from 'debug'
+
+const debug = createDebug('giftr:httpServer')
 
 const httpServer = http.createServer(app)
 
