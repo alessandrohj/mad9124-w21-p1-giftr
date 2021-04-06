@@ -6,11 +6,11 @@ import compression from 'compression'
 import cors from 'cors'
 import sanitizeMongo from 'express-mongo-sanitize'
 import authRouter from './routes/auth/index.js'
+import peopleRouter from './routes/people.js'
 import helmet from 'helmet'
 import connectDatabase from './startup/connectDatabase.js'
 
 connectDatabase()
-
 
 const app = express()
 
@@ -28,10 +28,9 @@ app.use(sanitizeMongo())
 
 // routes
 app.use('/auth', authRouter)
-
+app.use('/api/people', peopleRouter)
 
 // error handler middleware
 //to be created
-
 
 export default app
