@@ -7,7 +7,9 @@ import cors from 'cors'
 import sanitizeMongo from 'express-mongo-sanitize'
 import authRouter from './routes/auth/index.js'
 import peopleRouter from './routes/people.js'
+import giftRouter from './routes/gift.js'
 import helmet from 'helmet'
+import handleErrors from './middleware/handleErrors.js'
 import connectDatabase from './startup/connectDatabase.js'
 
 connectDatabase()
@@ -29,8 +31,9 @@ app.use(sanitizeMongo())
 // routes
 app.use('/auth', authRouter)
 app.use('/api/people', peopleRouter)
+app.use('/api/people/gift', giftRouter)
 
 // error handler middleware
-//to be created
+app.use(handleErrors)
 
 export default app
