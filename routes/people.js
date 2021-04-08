@@ -2,7 +2,8 @@ import sanitizeBody from '../middleware/sanitizeBody.js'
 import Person from '../models/Person.js'
 import logger from '../startup/logger.js'
 import authUser from '../middleware/authUser.js'
-import sendResourceNotFound from '../middleware/exceptions/ResourceNotFound.js'
+import ResourceNotFoundException from '../middleware/exceptions/ResourceNotFound.js'
+import handleErrors from '../middleware/handleErrors.js'
 import express from 'express'
 
 const log = logger.child({module: 'peopleRoute'});
@@ -21,22 +22,14 @@ router.post('/', authUser, sanitizeBody, async (req, res) => {
     res.status(201).send({ data: newDocument })
   } catch (err) {
     log(err)
-    res.status(500).send({
-      errors: [
-        {
-          status: '500',
-          title: 'Server error',
-          description: 'Problem saving document to the database.',
-        },
-      ],
-    })
+    handleErrors(err)
   }
 })
 
 router.get('/:id', authUser, async (req, res) => {
   try {
     const document = await Person.findById(req.params.id)
-    if (!document) throw new Error('Resource not found')
+    if (!document) throw new ResourceNotFoundException('Resource not found')
 
     res.send({ data: document })
   } catch (err) {
@@ -55,10 +48,10 @@ const update = (overwrite = false) => async (req, res) => {
         runValidators: true,
       }
     )
-    if (!document) throw new Error('Resource not found')
+    if (!document) throw new ResourceNotFoundException('Resource not found')
     res.send({ data: document })
   } catch (err) {
-    sendResourceNotFound(req, res)
+    handleErrors(req, res)
   }
 }
 router.put('/:id', authUser, sanitizeBody, update(true))
@@ -67,10 +60,10 @@ router.patch('/:id', authUser, sanitizeBody, update(false))
 router.delete('/:id', authUser, async (req, res) => {
   try {
     const document = await Person.findByIdAndRemove(req.params.id)
-    if (!document) throw new Error('Resource not found')
+    if (!document) throw new ResourceNotFoundException('Resource not found')
     res.send({ data: document })
   } catch (err) {
-    sendResourceNotFound(req, res)
+    handleErrors(req, res)
   }
 })
 
