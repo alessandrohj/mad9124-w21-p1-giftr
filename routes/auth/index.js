@@ -39,5 +39,9 @@ router.post('/tokens', sanitizeBody, async (req, res) => {
 })
 
 // Allow user to change password.
+// router.patch('/users/me', authUser, async (req, res)=>[
+// //to be built
+
+// ])
 
 export default router
