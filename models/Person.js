@@ -11,7 +11,7 @@ const schema = new mongoose.Schema({
       type: Date,
       required: true
   },
-  owner: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  owner: { type: mongoose.Schema.Types.ObjectId.valueOf(), ref: 'User', required: true },
   sharedWith: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
   gifts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Gift'}],
 },
