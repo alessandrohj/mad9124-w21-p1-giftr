@@ -3,9 +3,10 @@ import uniqueValidator from 'mongoose-unique-validator'
 import validator from 'validator'
 import bcrypt from 'bcrypt'
 import mongoose from 'mongoose'
+import config from 'config'
 
-const saltRounds = 14 // should be updated to a variable based on a config json
-const jwtSecretKey = 'supersecretkey' //to be changed
+const saltRounds = config.get("jwt:saltRounds")
+const jwtSecretKey = 'supersecretkey' //to be changed to a env variable
 
 export const schema = new mongoose.Schema({
   firstName: { type: String, trim: true, required: true },
