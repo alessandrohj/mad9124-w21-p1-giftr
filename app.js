@@ -14,7 +14,6 @@ import connectDatabase from './startup/connectDatabase.js'
 
 connectDatabase()
 
-
 const app = express()
 
 log.info(process.env.NODE_ENV)
@@ -36,6 +35,5 @@ app.use('/api/people/gift', giftRouter)
 
 // error handler middleware
 app.use(handleErrors)
-
 
 export default app
