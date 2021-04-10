@@ -41,6 +41,14 @@ const update = (overwrite = false) => async (req, res) => {
 
 router.patch('/:id/gifts/:giftId', authUser, sanitizeBody, update(false))
 
-router.delete('/:id/gifts/:giftId', authUser, async (req, res) => {})
+router.delete('/:id/gifts/:giftId', authUser, async (req, res) => {
+  try {
+    const document = await Gift.findByIdAndRemove(req.params.giftId)
+    if (!document) throw new ResourceNotFoundException('Resource not found')
+    res.send({ data: document })
+  } catch (err) {
+    handleErrors(req, res)
+  }
+})
 
 export default router
