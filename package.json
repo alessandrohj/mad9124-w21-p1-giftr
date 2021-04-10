@@ -11,6 +11,7 @@
   "author": "Gyuyoung Lee and Alessandro de Jesus",
   "license": "ISC",
   "dependencies": {
+    "assert": "^2.0.0",
     "bcrypt": "^5.0.1",
     "compression": "^1.7.4",
     "config": "^3.3.6",

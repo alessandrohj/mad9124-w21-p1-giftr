@@ -1,5 +1,6 @@
 import sanitizeBody from '../middleware/sanitizeBody.js'
 import Gift from '../models/Gift.js'
+import Person from '../models/Person.js'
 import logger from '../startup/logger.js'
 import authUser from '../middleware/authUser.js'
 import handleErrors from '../middleware/handleErrors.js'
@@ -14,6 +15,9 @@ router.post('/:id/gifts', authUser, sanitizeBody, async (req, res) => {
   let newDocument = new Gift(req.sanitizedBody)
   try {
     await newDocument.save()
+    const savedDocument = await Person.findOne({ _id: req.params.id })
+    savedDocument.gifts.push(newDocument._id)
+    await savedDocument.save()
     res.status(201).send({ data: newDocument })
   } catch (err) {
     log(err)
