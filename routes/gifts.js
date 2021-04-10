@@ -21,15 +21,26 @@ router.post('/:id/gifts', authUser, sanitizeBody, async (req, res) => {
   }
 })
 
-router.patch(
-  '/people/:id/gifts/:giftId',
-  authUser,
-  sanitizeBody,
-  async (req, res) => {
-    //pending to be created
+const update = (overwrite = false) => async (req, res) => {
+  try {
+    const document = await Gift.findByIdAndUpdate(
+      req.params.giftId,
+      req.sanitizedBody,
+      {
+        new: true,
+        overwrite,
+        runValidators: true,
+      }
+    )
+    if (!document) throw new ResourceNotFoundException('Resource not found')
+    res.send({ data: document })
+  } catch (err) {
+    handleErrors(req, res)
   }
-)
+}
 
-router.delete('/people/:id/gifts/:giftId', authUser, async (req, res) => {})
+router.patch('/:id/gifts/:giftId', authUser, sanitizeBody, update(false))
+
+router.delete('/:id/gifts/:giftId', authUser, async (req, res) => {})
 
 export default router
