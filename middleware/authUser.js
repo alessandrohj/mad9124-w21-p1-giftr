@@ -1,7 +1,8 @@
 import jwt from 'jsonwebtoken'
 import config from 'config'
 
-const jwtSecretKey = config.get('jwt')
+//const jwtSecretKey = config.get('jwt')
+const jwtSecretKey = 'supersecretkey' //to be changed to an env variable
 
 const parseToken = function (headerValue) {
   if (headerValue) {

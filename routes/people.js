@@ -6,7 +6,7 @@ import ResourceNotFoundException from '../middleware/exceptions/ResourceNotFound
 import handleErrors from '../middleware/handleErrors.js'
 import express from 'express'
 
-const log = logger.child({module: 'peopleRoute'});
+const log = logger.child({ module: 'peopleRoute' })
 
 const router = express.Router()
 
@@ -28,7 +28,7 @@ router.post('/', authUser, sanitizeBody, async (req, res) => {
 
 router.get('/:id', authUser, async (req, res) => {
   try {
-    const document = await Person.findById(req.params.id)
+    const document = await await Person.findById(req.params.id)
     if (!document) throw new ResourceNotFoundException('Resource not found')
 
     res.send({ data: document })

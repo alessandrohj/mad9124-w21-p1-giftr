@@ -28,6 +28,6 @@ const schema = new mongoose.Schema(
     timestamps: true,
   }
 )
-const Model = mongoose.model('Gift', schema)
+const Model = mongoose.model('Person', schema)
 
 export default Model
