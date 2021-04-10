@@ -15,9 +15,11 @@ router.post('/:id/gifts', authUser, sanitizeBody, async (req, res) => {
   let newDocument = new Gift(req.sanitizedBody)
   try {
     await newDocument.save()
+
     const savedDocument = await Person.findOne({ _id: req.params.id })
     savedDocument.gifts.push(newDocument._id)
     await savedDocument.save()
+
     res.status(201).send({ data: newDocument })
   } catch (err) {
     log(err)
@@ -36,6 +38,13 @@ const update = (overwrite = false) => async (req, res) => {
         runValidators: true,
       }
     )
+    const savedDocument = await Person.findById(req.params.id)
+    const savedGiftDocument = await savedDocument.gifts
+    savedGiftDocument.forEach((gift) => {
+      if (gift == req.params.giftId) {
+        gift = req.sanitizedBody
+      }
+    })
     if (!document) throw new ResourceNotFoundException('Resource not found')
     res.send({ data: document })
   } catch (err) {
