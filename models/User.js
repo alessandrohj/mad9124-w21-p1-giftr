@@ -5,18 +5,29 @@ import bcrypt from 'bcrypt'
 import mongoose from 'mongoose'
 import config from 'config'
 
-const saltRounds = config.get("jwt.saltRounds")
+const saltRounds = config.get('jwt.saltRounds')
 const jwtSecretKey = 'supersecretkey' //to be changed to an env variable
 
 export const schema = new mongoose.Schema({
-  firstName: { type: String, trim: true, required: true },
-  lastName: { type: String, trim: true },
-  email: { 
-  type: String, trim: true, required: true, unique: true, set: function (value) { return value.toLowerCase()}, validate: { 
-    validator: (value) => {validator.isEmail(value)},
-    message: (props) => `${props.value} is not a valid email address.`
-  } },
-  password: { type: String, trim: true, required: true },
+  firstName: { type: String, trim: true, required: true, maxlength: 64 },
+  lastName: { type: String, trim: true, maxlength: 64 },
+  email: {
+    type: String,
+    trim: true,
+    required: true,
+    unique: true,
+    maxlength: 512,
+    set: function (value) {
+      return value.toLowerCase()
+    },
+    validate: {
+      validator: (value) => {
+        validator.isEmail(value)
+      },
+      message: (props) => `${props.value} is not a valid email address.`,
+    },
+  },
+  password: { type: String, trim: true, required: true, maxlength: 70 },
 })
 
 schema.methods.generateAuthToken = function () {
@@ -57,7 +68,7 @@ schema.plugin(uniqueValidator, {
     } else {
       return `The ${props.path} must be unique. ${props.path} is already in use.`
     }
-  }
+  },
 })
 
 const Model = mongoose.model('User', schema)
