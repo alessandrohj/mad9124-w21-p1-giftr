@@ -1,23 +1,33 @@
 import mongoose from 'mongoose'
 
-const schema = new mongoose.Schema({
-  name: {
+const schema = new mongoose.Schema(
+  {
+    name: {
       type: String,
       required: true,
-      maxLength: 254,
-      required: true
-  }, 
-  birthDate: {
+      maxlength: 254,
+      required: true,
+    },
+    birthDate: {
       type: Date,
-      required: true
+      required: true,
+    },
+    owner: {
+      type: mongoose.Schema.Types.ObjectId.valueOf(),
+      ref: 'User',
+      required: true,
+    },
+    sharedWith: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
+    gifts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Gift' }],
+    imageUrl: {
+      type: String,
+      maxlength: 1024,
+    },
   },
-  owner: { type: mongoose.Schema.Types.ObjectId.valueOf(), ref: 'User', required: true },
-  sharedWith: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-  gifts: [{type: mongoose.Schema.Types.ObjectId, ref: 'Gift'}],
-},
-{
+  {
     timestamps: true,
-  })
+  }
+)
 const Model = mongoose.model('Gift', schema)
 
 export default Model
