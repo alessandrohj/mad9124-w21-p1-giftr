@@ -31,7 +31,7 @@ app.use(sanitizeMongo())
 // routes
 app.use('/auth', authRouter)
 app.use('/api/people', peopleRouter)
-app.use('/api/people/gifts', giftRouter)
+app.use('/api/people', giftRouter)
 
 // error handler middleware
 app.use(handleErrors)
