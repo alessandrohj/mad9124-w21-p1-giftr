@@ -61,6 +61,15 @@ schema.pre('save', async function (next) {
   next()
 })
 
+schema.pre("findOneAndUpdate", async function(next) {
+  const user = await this.model.findOne(this.getQuery());
+
+  // add your hashing logic to here
+  let newPassword = await bcrypt.hash(user.password, saltRounds);
+
+  this.set({ password: newPassword });
+});
+
 schema.plugin(uniqueValidator, {
   message: function (props) {
     if (props.path === 'email') {
