@@ -40,11 +40,15 @@ router.post('/tokens', sanitizeBody, async (req, res) => {
 
 // Allow user to change password.
 router.patch('/users/me', authUser, sanitizeBody, async (req, res)=>{
-let newPassword = req.sanitizedBody
-let result = await User.findByIdAndUpdate(req.user._id, {$set: newPassword}, { new: true });
+  const { email, password } = req.sanitizedBody
+  let user = await User.findOne({_id: req.user._id}, function(err, doc){
+    if(err) res.send(err);
+    doc.password = password
+    doc.save();
+  })
+  res.status(201).send({data: user});
+  })
 
-  res.send(result);
-
-})
+//Reset password
 
 export default router
