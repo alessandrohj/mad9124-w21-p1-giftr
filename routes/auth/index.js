@@ -2,6 +2,8 @@ import User from '../../models/User.js'
 import sanitizeBody from '../../middleware/sanitizeBody.js'
 import authUser from '../../middleware/authUser.js'
 import express from 'express'
+
+
 const router = express.Router()
 
 router.post('/users', sanitizeBody, async (req, res) => {
@@ -48,7 +50,5 @@ router.patch('/users/me', authUser, sanitizeBody, async (req, res)=>{
   })
   res.status(201).send({data: user});
   })
-
-//Reset password
 
 export default router
