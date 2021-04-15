@@ -6,7 +6,7 @@ import mongoose from 'mongoose'
 import config from 'config'
 
 const saltRounds = config.get('jwt.saltRounds')
-const jwtSecretKey = 'supersecretkey' //to be changed to an env variable
+const jwtSecretKey = config.get('jwt.secretKey') 
 
 export const schema = new mongoose.Schema({
   firstName: { type: String, trim: true, required: true, maxlength: 64 },

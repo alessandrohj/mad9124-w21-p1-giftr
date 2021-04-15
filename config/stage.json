@@ -3,8 +3,8 @@
       "scheme": "mongodb+srv",
       "username": "APP_DBUSER",
       "password": "APP_DBPASSWORD",
-      "host": "giftr-1p8fa.mongodb.net",
-      "authSource": "test",
+      "host": "giftr.i4hrd.mongodb.net",
+      "authSource": "myFirstDatabase",
       "name": "w21-final-giftr"
     }
   }

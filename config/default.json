@@ -2,7 +2,7 @@
     "name": "GiftR",
     "db": {
       "host": "localhost",
-      "port": "27017",
+      "port": "API_PORT",
       "dbName": "mad9124"
     },
     "jwt": {
