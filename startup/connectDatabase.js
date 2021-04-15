@@ -3,21 +3,33 @@ import logger from './logger.js'
 import config from 'config'
 
 const log = logger.child({module: 'connectDB'})
-const dbConf = config.get('db')
 
-export default function () {
-    mongoose
-    .connect(`mongodb://${dbConf.host}:${dbConf.port}/${dbConf.dbName}`, {
-        useNewUrlParser: true,
-        useCreateIndex: true,
-        useFindAndModify: false,
-        useUnifiedTopology: true,
-    })
-    .then(()=>{
-        log.info('Successfully connected to MongoDB')
-    })
-    .catch((err)=>{
-        log.info('Error connecting to MongoDB', err.message)
-        process.exit(1)
-    })
-}
+export default async function connectDatabase () {
+    const {scheme, host, port, name, username, password, authSource} = config.get('db')
+    const credentials = username && password ? `${username}:${password}@` : ''
+  
+    let connectionString = `${scheme}://${credentials}${host}`
+  
+    if (scheme === 'mongodb') {
+      connectionString += `:${port}/${name}?authSource=${authSource}`
+    } else {
+      connectionString += `/${authSource}?retryWrites=true&w=majority`
+    }
+  
+    try {
+      await mongoose.connect(
+        connectionString,
+        {
+          useNewUrlParser: true,
+          useUnifiedTopology: true,
+          useCreateIndex: true,
+          useFindAndModify: false,
+          dbName: name
+        }
+      )
+      log.info(`Connected to MongoDB @ ${name}...`)
+    } catch(err) {
+      log.error(`Error connecting to MongoDB ...`, err)
+      process.exit(1)
+    }
+  }

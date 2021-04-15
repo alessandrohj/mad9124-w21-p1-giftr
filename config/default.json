@@ -1,11 +1,13 @@
 {
     "name": "GiftR",
     "db": {
+      "scheme": "mongodb",
       "host": "localhost",
       "port": "27017",
       "dbName": "mad9124"
     },
     "jwt": {
-      "saltRounds": 14
+      "saltRounds": 14,
+      "secretKey": "APP_JWTKEY"
     }
   }
