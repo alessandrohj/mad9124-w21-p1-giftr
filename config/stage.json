@@ -3,7 +3,7 @@
       "scheme": "mongodb+srv",
       "username": "APP_DBUSER",
       "password": "APP_DBPASSWORD",
-      "port": "API_PORT",
+      "port": "80",
       "host": "giftr.i4hrd.mongodb.net",
       "authSource": "myFirstDatabase",
       "name": "w21-final-giftr"
