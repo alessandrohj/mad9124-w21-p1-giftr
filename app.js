@@ -20,6 +20,7 @@ log.info(process.env.NODE_ENV)
 log.warn(app.get('env')) //if NODE_ENV is undefined, returns development
 
 app.use(cors())
+app.get('/', (req, res) => res.send({data: {healthStatus: 'UP'}}))
 app.use(helmet())
 app.use(compression())
 app.use(morgan('tiny'))
