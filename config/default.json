@@ -1,8 +1,9 @@
 {
     "name": "GiftR",
     "db": {
+      "scheme": "mongodb",
       "host": "localhost",
-      "port": "API_PORT",
+      "port": "27017",
       "dbName": "mad9124"
     },
     "jwt": {
