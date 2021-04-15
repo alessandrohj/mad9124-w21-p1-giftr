@@ -1,9 +1,9 @@
 {
     "db": {
       "scheme": "mongodb+srv",
-      "username": "deje0014",
-      "password": "FoRPNurjzhnp3sxf",
-      "port": "80",
+      "username": "APP_DBUSER",
+      "password": "APP_DBPASSWORD",
+      "port": "API_PORT",
       "host": "giftr.i4hrd.mongodb.net",
       "authSource": "myFirstDatabase",
       "name": "w21-final-giftr"
