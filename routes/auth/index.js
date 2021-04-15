@@ -6,7 +6,7 @@ import express from 'express'
 
 const router = express.Router()
 
-router.post('/users', sanitizeBody, async (req, res) => {
+router.post('/users', sanitizeBody, async (req, res, next) => {
     new User(req.sanitizedBody)
     .save()
     .then((newUser) => res.status(201).send({data: newUser}))

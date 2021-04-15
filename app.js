@@ -29,6 +29,7 @@ app.use(express.json())
 app.use(sanitizeMongo())
 
 // routes
+app.get('/', (req, res) => res.send({data: {healthStatus: 'UP'}}))
 app.use('/auth', authRouter)
 app.use('/api/people', peopleRouter)
 app.use('/api/people', giftRouter)
