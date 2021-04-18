@@ -1,5 +1,6 @@
 import sanitizeBody from '../middleware/sanitizeBody.js'
 import Person from '../models/Person.js'
+import User from '../models/User.js'
 import logger from '../startup/logger.js'
 import authUser from '../middleware/authUser.js'
 import ResourceNotFoundException from '../middleware/exceptions/ResourceNotFound.js'
@@ -11,17 +12,20 @@ const log = logger.child({ module: 'peopleRoute' })
 const router = express.Router()
 
 router.get('/', authUser, async (req, res) => {
-  const collection = await Person.find(req.params._id).populate('owner')
+  const user = await User.findById(req.user._id)
+  const collection = await Person.find({owner: user}).populate('gifts')
   res.send({ data: collection })
 })
 
 router.post('/', authUser, sanitizeBody, async (req, res) => {
   let newDocument = new Person(req.sanitizedBody)
   try {
+    const user = await User.findById(req.user._id)
+    newDocument.owner = user;
     await newDocument.save()
     res.status(201).send({ data: newDocument })
   } catch (err) {
-    log(err)
+    log.error(err)
     handleErrors(err)
   }
 })

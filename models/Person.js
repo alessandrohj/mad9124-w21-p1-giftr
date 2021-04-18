@@ -1,5 +1,4 @@
 import mongoose from 'mongoose'
-
 const schema = new mongoose.Schema(
   {
     name: {
@@ -13,8 +12,7 @@ const schema = new mongoose.Schema(
       required: true,
     },
     owner: {
-      type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-      ref: 'User',
+      type: mongoose.Schema.Types.ObjectId, ref: 'User',
       required: true,
     },
     sharedWith: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],

@@ -18,9 +18,10 @@ router.post('/:id/gifts', authUser, sanitizeBody, async (req, res) => {
     const savedDocument = await Person.findOne({ _id: req.params.id })
     savedDocument.gifts.push(newDocument._id)
     await savedDocument.save()
-    res.status(201).send({ data: newDocument })
+    const showData = await Person.findOne({ _id: req.params.id }).populate('gifts') //added this line to match Robert's API output
+    res.status(201).send({ data: showData })
   } catch (err) {
-    log(err)
+    log.error(err)
     handleErrors(err)
   }
 })
