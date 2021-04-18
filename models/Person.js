@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+// import User from '../models/User.js'
 
 const schema = new mongoose.Schema(
   {
@@ -13,8 +14,7 @@ const schema = new mongoose.Schema(
       required: true,
     },
     owner: {
-      type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
-      ref: 'User',
+      type: mongoose.Schema.Types.ObjectId, ref: 'User',
       required: true,
     },
     sharedWith: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
