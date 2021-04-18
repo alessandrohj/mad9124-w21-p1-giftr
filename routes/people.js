@@ -13,7 +13,7 @@ const router = express.Router()
 
 router.get('/', authUser, async (req, res) => {
   const user = await User.findById(req.user._id)
-  const collection = await Person.find({owner: user})
+  const collection = await Person.find({owner: user}).populate('gifts')
   res.send({ data: collection })
 })
 
