@@ -1380,3 +1380,99 @@
 {"message":"development","level":"warn","service":"GiftR"}
 {"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
 {"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"module":"giftRoute","errors":{"name":{"name":"ValidatorError","message":"Path `name` is required.","properties":{"message":"Path `name` is required.","type":"required","path":"name"},"kind":"required","path":"name"}},"_message":"Gift validation failed","level":"error","service":"GiftR","stack":"ValidationError: Gift validation failed: name: Path `name` is required.\n    at model.Document.invalidate (/Users/alessandro/Documents/MAD/MAD9124/Code/Assignment/mad9124-w21-p1-giftr/node_modules/mongoose/lib/document.js:2703:32)\n    at /Users/alessandro/Documents/MAD/MAD9124/Code/Assignment/mad9124-w21-p1-giftr/node_modules/mongoose/lib/document.js:2523:17\n    at /Users/alessandro/Documents/MAD/MAD9124/Code/Assignment/mad9124-w21-p1-giftr/node_modules/mongoose/lib/schematype.js:1254:9\n    at processTicksAndRejections (internal/process/task_queues.js:75:11)","message":"Gift validation failed: name: Path `name` is required."}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"module":"giftRoute","level":"error","service":"GiftR","stack":"TypeError: Cannot read property 'gifts' of null\n    at file:///Users/alessandro/Documents/MAD/MAD9124/Code/Assignment/mad9124-w21-p1-giftr/routes/gifts.js:19:19\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)","message":"Cannot read property 'gifts' of null"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"module":"giftRoute","level":"error","service":"GiftR","stack":"TypeError: savedDocument.save(...).populate is not a function\n    at file:///Users/alessandro/Documents/MAD/MAD9124/Code/Assignment/mad9124-w21-p1-giftr/routes/gifts.js:20:32\n    at processTicksAndRejections (internal/process/task_queues.js:93:5)","message":"savedDocument.save(...).populate is not a function"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"module":"giftRoute","errors":{"name":{"name":"ValidatorError","message":"Path `name` (`NEW`) is shorter than the minimum allowed length (4).","properties":{"message":"Path `name` (`NEW`) is shorter than the minimum allowed length (4).","type":"minlength","minlength":4,"path":"name","value":"NEW"},"kind":"minlength","path":"name","value":"NEW"}},"_message":"Gift validation failed","level":"error","service":"GiftR","stack":"ValidationError: Gift validation failed: name: Path `name` (`NEW`) is shorter than the minimum allowed length (4).\n    at model.Document.invalidate (/Users/alessandro/Documents/MAD/MAD9124/Code/Assignment/mad9124-w21-p1-giftr/node_modules/mongoose/lib/document.js:2703:32)\n    at /Users/alessandro/Documents/MAD/MAD9124/Code/Assignment/mad9124-w21-p1-giftr/node_modules/mongoose/lib/document.js:2523:17\n    at /Users/alessandro/Documents/MAD/MAD9124/Code/Assignment/mad9124-w21-p1-giftr/node_modules/mongoose/lib/schematype.js:1254:9\n    at processTicksAndRejections (internal/process/task_queues.js:75:11)","message":"Gift validation failed: name: Path `name` (`NEW`) is shorter than the minimum allowed length (4)."}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}
+{"level":"info","service":"GiftR"}
+{"message":"development","level":"warn","service":"GiftR"}
+{"module":"giftr:httpServer","message":"HTTP server listening on port 3030","level":"info","service":"GiftR"}
+{"module":"connectDB","message":"Connected to MongoDB @ undefined...","level":"info","service":"GiftR"}

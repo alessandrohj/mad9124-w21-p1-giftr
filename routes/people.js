@@ -25,7 +25,7 @@ router.post('/', authUser, sanitizeBody, async (req, res) => {
     await newDocument.save()
     res.status(201).send({ data: newDocument })
   } catch (err) {
-    log(err)
+    log.error(err)
     handleErrors(err)
   }
 })
