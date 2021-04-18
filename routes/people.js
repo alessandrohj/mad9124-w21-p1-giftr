@@ -11,7 +11,7 @@ const log = logger.child({ module: 'peopleRoute' })
 const router = express.Router()
 
 router.get('/', authUser, async (req, res) => {
-  const collection = await Person.find().populate('owner')
+  const collection = await Person.find(req.params._id).populate('owner')
   res.send({ data: collection })
 })
 

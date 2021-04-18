@@ -13,7 +13,7 @@ const schema = new mongoose.Schema(
       required: true,
     },
     owner: {
-      type: mongoose.Schema.Types.ObjectId.valueOf(),
+      type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }],
       ref: 'User',
       required: true,
     },
