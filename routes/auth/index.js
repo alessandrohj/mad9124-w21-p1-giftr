@@ -46,11 +46,17 @@ router.patch('/users/me', authUser, sanitizeBody, async (req, res)=>{
   let user = await User.findOne({_id: req.user._id}, function(err, doc){
     if(err) res.send(err);
     doc.password = password
-    doc.save()
-    User.authenticate(email, password)
+    doc.save();
   })
 
-  res.status(201).send({data: user, token: user.generateAuthToken() });
+  if(email) {
+    User.authenticate(email, password)
+    res.status(201)
+    .send({ data: user, token: user.generateAuthToken() })
+  } else {
+
+  res.status(201).send({data: user });
+  }
   })
 
 export default router
