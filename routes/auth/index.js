@@ -50,9 +50,9 @@ router.patch('/users/me', authUser, sanitizeBody, async (req, res)=>{
   })
 
   if(email) {
-    User.authenticate(email, password)
+    const authenticatedUser = await User.authenticate(email, password)
     res.status(201)
-    .send({ data: user, token: user.generateAuthToken() })
+    .send({ data: user, token: authenticatedUser.generateAuthToken() })
   } else {
 
   res.status(201).send({data: user });
