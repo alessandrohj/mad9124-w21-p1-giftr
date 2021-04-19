@@ -49,14 +49,7 @@ router.patch('/users/me', authUser, sanitizeBody, async (req, res)=>{
     doc.save();
   })
 
-  if(email) {
-    const authenticatedUser = await User.authenticate(email, password)
-    res.status(201)
-    .send({ data: user, token: authenticatedUser.generateAuthToken() })
-  } else {
-
   res.status(201).send({data: user });
-  }
   })
 
 export default router
