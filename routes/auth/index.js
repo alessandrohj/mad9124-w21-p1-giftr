@@ -49,7 +49,7 @@ router.patch('/users/me', authUser, sanitizeBody, async (req, res)=>{
     doc.save();
   })
 
-  res.status(201).send({data: user });
+  res.status(200).send({data: user });
   })
 
 export default router
