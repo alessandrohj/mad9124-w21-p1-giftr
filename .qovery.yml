@@ -1,0 +1,15 @@
+---
+application:
+  name: "mad9124-w21-p1-giftr"
+  project: "giftr"
+  organization: "QoveryCommunity"
+databases:
+- type: "MONGODB"
+  name: "giftr"
+  version: "4.4"
+routers:
+- name: "main-mad9124-w21-p1-giftr"
+  routes:
+  - application_name: "mad9124-w21-p1-giftr"
+    paths:
+    - "/*"
